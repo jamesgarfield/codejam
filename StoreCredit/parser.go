@@ -39,7 +39,7 @@ func parseCase(lex *lexer) stateFn {
 		return nil
 	}
 
-	c := &Case{}
+	c := &Case{CaseNum: len(lex.Cases) + 1}
 
 	currentCase := strconv.Itoa(len(lex.Cases) + 1)
 
@@ -59,6 +59,7 @@ func parseCase(lex *lexer) stateFn {
 	c.Prices = parsePrices(lex.Scanner.Text())
 
 	lex.Cases = append(lex.Cases, c)
+	c.CaseNum = len(lex.Cases)
 
 	return parseCase
 }
