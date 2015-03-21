@@ -13,9 +13,10 @@ func Test_Parse(t *testing.T) {
 	in := bufio.NewScanner(strings.NewReader(sample))
 
 	expect := 0
+
 	cases := parse(in)
 	if len(cases) != expect {
-		t.Errorf("Incorrect number of cases. Expected: %d, Found: %d", expect, len(cases))
+		t.Errorf("Incorrect number of cases. Expected: %d, Found: %d\n", expect, len(cases))
 	}
 }
 

@@ -45,6 +45,7 @@ func parseCase(lex *lexer) stateFn {
 	c := &Case{
 		CaseNum: len(lex.Cases) + 1,
 	}
+
 	lex.Cases = append(lex.Cases, c)
 
 	return parseCase
@@ -57,4 +58,13 @@ func parseInt(s string) int {
 	}
 
 	return int(i)
+}
+
+func parseInt64(s string) int64 {
+	i, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		panic("Invalid Integer: " + s)
+	}
+
+	return i
 }

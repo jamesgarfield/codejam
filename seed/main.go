@@ -5,18 +5,12 @@ import (
 	"fmt"
 	"os"
 	"runtime"
-	"strings"
 )
 
-type Case struct {
-	CaseNum  int
-	Solution string
-}
-
-//go:generate goast write impl github.com/jamesgarfield/sliceops
+//go:generate goast write impl goast.net/x/sort
 type Cases []*Case
 
-//go:generate goast write impl pipeline.go
+//go:generate goast write impl goast.net/x/pipeline
 type CaseChan chan *Case
 
 func init() {
@@ -61,9 +55,4 @@ func solve(cases []*Case) (result []string) {
 
 func fmtAns(c *Case) string {
 	return fmt.Sprintf("Case #%d: %s", c.CaseNum, c.Solution)
-}
-
-func solveCase(c *Case) *Case {
-
-	return c
 }
